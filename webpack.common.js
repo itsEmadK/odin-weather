@@ -30,13 +30,7 @@ module.exports = {
             {
                 test: /\.(?:js|mjs|cjs)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        targets: "> 0.25%, not dead",
-                        presets: [["@babel/preset-env"]],
-                    },
-                },
+                use:["babel-loader"],
             },
         ],
     },
