@@ -41,9 +41,9 @@ function updateWeatherInfoDisplay(weather, isCelsius = true, isKPH = true) {
     conditionDiv.innerText = weather.conditions;
     addressDiv.innerText = weather.address;
     tempDiv.innerText = weather.temp;
-    fellsLikeDiv.innerText = weather.feelsLike;
-    humidityDiv.innerText = weather.humidity;
-    windDiv.innerText = `${weather.windSpeed} ${isKPH ? 'KPH' : 'MPH'}`;
+    fellsLikeDiv.innerText = `FEELS LIKE: ${weather.feelsLike}`;
+    humidityDiv.innerText = `HUMIDITY: ${weather.humidity}%`;
+    windDiv.innerText = `WIND: ${weather.windSpeed} ${isKPH ? 'KPH' : 'MPH'}`;
 
     const tempSymbol = '°';
     const tempLetter = isCelsius ? 'C' : 'F';

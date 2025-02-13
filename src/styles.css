@@ -42,3 +42,32 @@ p.address {
     text-transform: uppercase;
     font-family: 'NotoSans-SemiBold';
 }
+
+div.more-info {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-self: start;
+    gap: 1em;
+}
+
+div.more-info div.details {
+    align-self: center;
+    border-left: 2px solid rgb(210, 210, 210);
+    padding-left: 32px;
+    display: grid;
+    gap: 12px;
+}
+
+p.temp {
+    font-size: 7rem;
+    font-family: 'NotoSans-Bold';
+    padding-right: 32px;
+    position: relative;
+}
+
+p.temp sup.temp-symbol {
+    font-size: 2rem;
+    position: absolute;
+    right: 16px;
+    top: 0;
+}
