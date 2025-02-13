@@ -53,3 +53,16 @@ function updateWeatherInfoDisplay(weather, isCelsius = true, isKPH = true) {
     tempDiv.appendChild(tempSymbolSup.cloneNode(true));
     fellsLikeDiv.appendChild(tempSymbolSup.cloneNode(true));
 }
+
+const submitCityButton = document.querySelector('button.submit-city');
+submitCityButton.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const cityInput = document.querySelector('#city');
+    const city = cityInput.value;
+    try {
+        const weather = await getCurrentWeather(city);
+        updateWeatherInfoDisplay(weather);
+    } catch (error) {
+        console.log(error);
+    }
+});
