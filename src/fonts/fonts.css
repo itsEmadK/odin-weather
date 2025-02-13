@@ -1,0 +1,49 @@
+/* Generated font-face rules */
+@font-face {
+    font-family: 'NotoSans-Black';
+    src: url('NotoSans-Black.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSans-Bold';
+    src: url('NotoSans-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSans-ExtraBold';
+    src: url('NotoSans-ExtraBold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSans-Medium';
+    src: url('NotoSans-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSans-Regular';
+    src: url('NotoSans-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSans-SemiBold';
+    src: url('NotoSans-SemiBold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSans-Thin';
+    src: url('NotoSans-Thin.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
