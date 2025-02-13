@@ -72,15 +72,33 @@ function updateWeatherInfoDisplay(weather, isCelsius = true, isKPH = true) {
     document.body.classList.add(cssClass);
 }
 
+const cityInput = document.querySelector('#city');
+cityInput.value = 'Tehran';
+getCurrentWeather('tehran').then((weather) => {
+    updateWeatherInfoDisplay(weather);
+});
+
 const submitCityButton = document.querySelector('button.submit-city');
 submitCityButton.addEventListener('click', async (e) => {
     e.preventDefault();
-    const cityInput = document.querySelector('#city');
     const city = cityInput.value;
     try {
         const weather = await getCurrentWeather(city);
         updateWeatherInfoDisplay(weather);
     } catch (error) {
-        console.log(error);
+        const errorSpan = document.querySelector('span.error');
+        errorSpan.classList.add('visible');
+        cityInput.classList.add('error');
+        if (+error.message === 400) {
+            errorSpan.innerText = 'City info is not available :(';
+        } else {
+            errorSpan.innerText = error.message;
+        }
     }
+});
+
+cityInput.addEventListener('input', () => {
+    const errorSpan = document.querySelector('span.error');
+    cityInput.classList.remove('error');
+    errorSpan.classList.remove('visible');
 });

@@ -104,6 +104,10 @@ p.temp sup.temp-symbol {
     top: 0;
 }
 
+.search-bar form {
+    display: grid;
+}
+
 input#city {
     font-size: 1.2rem;
     padding: 4px 8px;
@@ -112,6 +116,8 @@ input#city {
     border: 2px solid grey;
     max-width: 240px;
     font-family: 'NotoSans-Regular';
+    grid-column-start: 1;
+    grid-column-end: 2;
 }
 
 input#city:focus {
@@ -120,9 +126,10 @@ input#city:focus {
     border-radius: 6px 0px 0px 6px;
 }
 
-.search-bar form {
-    display: flex;
+input#city.error {
+    border-color: red;
 }
+
 button.submit-city {
     border-radius: 0px 6px 6px 0;
     appearance: none;
@@ -131,8 +138,24 @@ button.submit-city {
     background-position: center;
     background-repeat: no-repeat;
     border-left: none;
+    grid-column-start: 2;
+    grid-column-end: 3;
     background-image: url(./images/magnify.svg);
     padding: 12px;
+}
+
+span.error {
+    grid-row-start: 2;
+    color: red;
+    padding-left: 4px;
+    padding-top: 4px;
+    font-size: 0.75rem;
+    grid-row-end: 3;
+    visibility: hidden;
+}
+
+span.error.visible {
+    visibility: visible;
 }
 
 button.submit-city:hover {
