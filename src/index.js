@@ -52,6 +52,24 @@ function updateWeatherInfoDisplay(weather, isCelsius = true, isKPH = true) {
     tempSymbolSup.innerText = tempSymbol + tempLetter;
     tempDiv.appendChild(tempSymbolSup.cloneNode(true));
     fellsLikeDiv.appendChild(tempSymbolSup.cloneNode(true));
+
+    const condition = weather.conditions.toLowerCase();
+    let cssClass = '';
+    if (condition.includes('rain')) {
+        cssClass = 'rainy';
+    } else if (condition.includes('partially')) {
+        cssClass = 'partially-cloudy';
+    } else if (condition.includes('cloudy')) {
+        cssClass = 'cloudy';
+    } else if (condition.includes('overcast')) {
+        cssClass = 'overcast';
+    } else if (condition.includes('clear')) {
+        cssClass = 'sunny';
+    } else if (condition.includes('snow')) {
+        cssClass = 'snowy';
+    }
+    document.body.classList = [];
+    document.body.classList.add(cssClass);
 }
 
 const submitCityButton = document.querySelector('button.submit-city');

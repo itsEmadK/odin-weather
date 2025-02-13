@@ -18,6 +18,38 @@ body {
     font-family: 'NotoSans-Medium';
 }
 
+body.sunny {
+    background-image: url(./images/sunny.jpg);
+    background-size: cover;
+}
+
+body.rainy {
+    background-image: url(./images/rain2.jpg);
+    background-size: cover;
+}
+
+body.mist {
+    background-image: url(./images/mist.jpg);
+    background-size: cover;
+}
+
+body.overcast {
+    background-image: url(./images/cloudy2.jpg);
+    background-size: cover;
+    color: white;
+}
+
+body.cloudy {
+    background-image: url(./images/cloudy.jpg);
+    background-size: cover;
+    color: white;
+}
+
+body.partially-cloudy {
+    background-image: url(./images/partially-cloudy.jpg);
+    background-size: cover;
+}
+
 div.search-bar {
     justify-self: end;
 }
