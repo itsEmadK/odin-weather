@@ -71,3 +71,19 @@ p.temp sup.temp-symbol {
     right: 16px;
     top: 0;
 }
+
+input#city {
+    font-size: 1.2rem;
+    padding: 4px 8px;
+    appearance: none;
+    border-radius: 6px 0px 0px 6px;
+    border: 2px solid grey;
+    max-width: 240px;
+    font-family: 'NotoSans-Regular';
+}
+
+input#city:focus {
+    outline: none;
+    border: 2px solid black;
+    border-radius: 6px 0px 0px 6px;
+}
