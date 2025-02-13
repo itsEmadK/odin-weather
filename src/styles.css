@@ -7,3 +7,20 @@
 button {
     cursor: pointer;
 }
+
+body {
+    padding: 2em;
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr;
+}
+
+div.search-bar {
+    justify-self: end;
+}
+
+div.weather {
+    align-self: center;
+    padding-left: 8em;
+    margin-top: -5em;
+}
