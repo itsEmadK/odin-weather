@@ -48,7 +48,7 @@ function updateWeatherInfoDisplay(weather, isCelsius = true, isKPH = true) {
     const tempSymbol = '°';
     const tempLetter = isCelsius ? 'C' : 'F';
     const tempSymbolSup = document.createElement('sup');
-    tempSymbolSup.classList.add('.temp-symbol');
+    tempSymbolSup.classList.add('temp-symbol');
     tempSymbolSup.innerText = tempSymbol + tempLetter;
     tempDiv.appendChild(tempSymbolSup.cloneNode(true));
     fellsLikeDiv.appendChild(tempSymbolSup.cloneNode(true));
