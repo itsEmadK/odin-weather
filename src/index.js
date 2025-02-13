@@ -30,6 +30,26 @@ async function getCurrentWeather(city) {
     return currentWeather;
 }
 
-getCurrentWeather('semnan').then((r) => {
-    console.log(r);
-});
+function updateWeatherInfoDisplay(weather, isCelsius = true, isKPH = true) {
+    const conditionDiv = document.querySelector('.condition');
+    const addressDiv = document.querySelector('.address');
+    const tempDiv = document.querySelector('.temp');
+    const fellsLikeDiv = document.querySelector('.feels-like');
+    const humidityDiv = document.querySelector('.humidity');
+    const windDiv = document.querySelector('.wind');
+
+    conditionDiv.innerText = weather.conditions;
+    addressDiv.innerText = weather.address;
+    tempDiv.innerText = weather.temp;
+    fellsLikeDiv.innerText = weather.feelsLike;
+    humidityDiv.innerText = weather.humidity;
+    windDiv.innerText = `${weather.windSpeed} ${isKPH ? 'KPH' : 'MPH'}`;
+
+    const tempSymbol = '°';
+    const tempLetter = isCelsius ? 'C' : 'F';
+    const tempSymbolSup = document.createElement('sup');
+    tempSymbolSup.classList.add('.temp-symbol');
+    tempSymbolSup.innerText = tempSymbol + tempLetter;
+    tempDiv.appendChild(tempSymbolSup.cloneNode(true));
+    fellsLikeDiv.appendChild(tempSymbolSup.cloneNode(true));
+}
