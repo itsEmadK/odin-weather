@@ -96,6 +96,8 @@ getCurrentWeather('tehran').then((weather) => {
 const submitCityButton = document.querySelector('button.submit-city');
 submitCityButton.addEventListener('click', async (e) => {
     e.preventDefault();
+    const weatherDiv = document.querySelector('div.weather');
+    weatherDiv.classList.add('loading');
     const city = cityInput.value;
     try {
         const weather = await getCurrentWeather(city);
@@ -111,6 +113,7 @@ submitCityButton.addEventListener('click', async (e) => {
             errorSpan.innerText = error.message;
         }
     }
+    weatherDiv.classList.remove('loading');
 });
 
 cityInput.addEventListener('input', () => {
