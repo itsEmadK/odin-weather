@@ -52,6 +52,11 @@ body.partially-cloudy {
     background-size: cover;
 }
 
+body.snowy {
+    background-image: url(./images/snow2.jpg);
+    background-size: cover;
+}
+
 div.search-bar {
     justify-self: end;
 }

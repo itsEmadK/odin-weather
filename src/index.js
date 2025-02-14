@@ -57,6 +57,8 @@ function updateWeatherInfoDisplay(weather, isCelsius = true, isKPH = true) {
     let cssClass = '';
     if (condition.includes('rain')) {
         cssClass = 'rainy';
+    } else if (condition.includes('snow')) {
+        cssClass = 'snowy';
     } else if (condition.includes('partially')) {
         cssClass = 'partially-cloudy';
     } else if (condition.includes('cloudy')) {
@@ -65,8 +67,6 @@ function updateWeatherInfoDisplay(weather, isCelsius = true, isKPH = true) {
         cssClass = 'overcast';
     } else if (condition.includes('clear')) {
         cssClass = 'sunny';
-    } else if (condition.includes('snow')) {
-        cssClass = 'snowy';
     }
     document.body.classList = [];
     document.body.classList.add(cssClass);
