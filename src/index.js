@@ -30,6 +30,12 @@ async function getCurrentWeather(city) {
     return currentWeather;
 }
 
+function celsiusToFahrenheit(temp) {
+    let f = (temp * 9) / 5;
+    f += 32;
+    return +f.toFixed(2);
+}
+
 function updateWeatherInfoDisplay(weather, isCelsius = true, isKPH = true) {
     const conditionDiv = document.querySelector('.condition');
     const addressDiv = document.querySelector('.address');
@@ -40,8 +46,15 @@ function updateWeatherInfoDisplay(weather, isCelsius = true, isKPH = true) {
 
     conditionDiv.innerText = weather.conditions;
     addressDiv.innerText = weather.address;
-    tempDiv.innerText = weather.temp;
-    fellsLikeDiv.innerText = `FEELS LIKE: ${weather.feelsLike}`;
+
+    const temp = isCelsius ? weather.temp : celsiusToFahrenheit(weather.temp);
+    tempDiv.innerText = temp;
+
+    const feelsLike = isCelsius
+        ? weather.feelsLike
+        : celsiusToFahrenheit(weather.feelsLike);
+
+    fellsLikeDiv.innerText = `FEELS LIKE: ${feelsLike}`;
     humidityDiv.innerText = `HUMIDITY: ${weather.humidity}%`;
     windDiv.innerText = `WIND: ${weather.windSpeed} ${isKPH ? 'KPH' : 'MPH'}`;
 
@@ -72,10 +85,12 @@ function updateWeatherInfoDisplay(weather, isCelsius = true, isKPH = true) {
     document.body.classList.add(cssClass);
 }
 
+let currentWeather = null;
 const cityInput = document.querySelector('#city');
 cityInput.value = 'Tehran';
 getCurrentWeather('tehran').then((weather) => {
     updateWeatherInfoDisplay(weather);
+    currentWeather = weather;
 });
 
 const submitCityButton = document.querySelector('button.submit-city');
@@ -85,6 +100,7 @@ submitCityButton.addEventListener('click', async (e) => {
     try {
         const weather = await getCurrentWeather(city);
         updateWeatherInfoDisplay(weather);
+        currentWeather = weather;
     } catch (error) {
         const errorSpan = document.querySelector('span.error');
         errorSpan.classList.add('visible');
@@ -101,4 +117,19 @@ cityInput.addEventListener('input', () => {
     const errorSpan = document.querySelector('span.error');
     cityInput.classList.remove('error');
     errorSpan.classList.remove('visible');
+});
+
+const celsiusButton = document.querySelector('button.celsius');
+const fahrenheitButton = document.querySelector('button.fahrenheit');
+
+celsiusButton.addEventListener('click', () => {
+    celsiusButton.classList.add('selected');
+    fahrenheitButton.classList.remove('selected');
+    updateWeatherInfoDisplay(currentWeather, true);
+});
+
+fahrenheitButton.addEventListener('click', () => {
+    celsiusButton.classList.remove('selected');
+    fahrenheitButton.classList.add('selected');
+    updateWeatherInfoDisplay(currentWeather, false);
 });
