@@ -36,6 +36,8 @@ body.mist {
 body.overcast {
     background-image: url(./images/cloudy2.jpg);
     background-size: cover;
+    background-color: rgb(0 0 0 / 0.5);
+    background-blend-mode: darken;
     color: white;
 }
 
