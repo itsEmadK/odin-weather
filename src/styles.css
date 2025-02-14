@@ -14,7 +14,7 @@ body {
     padding: 2em;
     display: grid;
     height: 100vh;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     font-family: 'NotoSans-Medium';
 }
 
@@ -54,6 +54,33 @@ body.partially-cloudy {
 
 div.search-bar {
     justify-self: end;
+}
+
+div.temp-buttons-container {
+    justify-self: end;
+    display: flex;
+}
+
+button.celsius,
+button.fahrenheit {
+    appearance: none;
+    border: none;
+    padding: 8px 12px;
+    font-family: 'NotoSans-SemiBold';
+}
+
+button.celsius.selected,
+button.fahrenheit.selected {
+    background-color: rgb(17, 67, 67);
+    color: white;
+}
+
+button.celsius {
+    border-radius: 4px 0 0 4px;
+}
+
+button.fahrenheit {
+    border-radius: 0 4px 4px 0;
 }
 
 div.weather {
